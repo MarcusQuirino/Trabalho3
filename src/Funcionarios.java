@@ -6,11 +6,11 @@ public class Funcionarios{
     private int cargaHoraria;
     private boolean possuiFilhos;
 
-    public Funcionarios(String nome, String cpf, int valorHora, int horaTrabalhada, boolean possuiFilhos) {
+    public Funcionarios(String nome, String cpf, Float valorHora, int cargaHoraria, boolean possuiFilhos) {
         this.nome = nome;
         this.cpf = cpf;
         this.valorHora = valorHora;
-        this.cargaHoraria = horaTrabalhada;
+        this.cargaHoraria = cargaHoraria;
         this.possuiFilhos = possuiFilhos;
         if (cargaHoraria >= 44) {
             this.cargaHoraria = 44;

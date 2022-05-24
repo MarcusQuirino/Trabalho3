@@ -2,11 +2,11 @@ public class Funcionarios{
     //funcionario: nome, cpf, valor hora trabalhada, hora trabalhada (max. 44h), possui filhos 
     private String nome;
     private String cpf;
-    private float valorHora;
+    private double valorHora;
     private int cargaHoraria;
     private boolean possuiFilhos;
 
-    public Funcionarios(String nome, String cpf, Float valorHora, int cargaHoraria, boolean possuiFilhos) {
+    public Funcionarios(String nome, String cpf, double valorHora, int cargaHoraria, boolean possuiFilhos) {
         this.nome = nome;
         this.cpf = cpf;
         this.valorHora = valorHora;
@@ -14,6 +14,12 @@ public class Funcionarios{
         this.possuiFilhos = possuiFilhos;
         if (cargaHoraria >= 44) {
             this.cargaHoraria = 44;
+        }
+        if (valorHora < 0) {
+            this.valorHora = 0;
+        }
+        if (cargaHoraria < 0){
+            this.cargaHoraria = 0;
         }
     }
 
@@ -35,19 +41,22 @@ public class Funcionarios{
         this.cpf = cpf;
     }
 
-    public float getValorHora() {
+    public double getValorHora() {
         return valorHora;
     }
 
     public void setValorHora(int valorHora) {
         this.valorHora = valorHora;
+        if (valorHora < 0) {
+            this.valorHora = 0;
+        }
     }
 
     public int getHoraTrabalhada() {
         return cargaHoraria;
     }
 
-    public void setHoraTrabalhada(int horaTrabalhada) {
+    public void setCargaHoraria(int horaTrabalhada) {
         this.cargaHoraria = horaTrabalhada;
         if (cargaHoraria >= 44) {
             this.cargaHoraria = 44;
@@ -70,8 +79,8 @@ public class Funcionarios{
     
     //calculo de salario de funcionario
 
-    public float salario(int valorHora, int cargaHoraria) {
-        float salario = valorHora * cargaHoraria;
+    public double salario(int valorHora, int cargaHoraria) {
+        double salario = valorHora * cargaHoraria;
         return salario;
     }
 }
